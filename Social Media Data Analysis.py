@@ -127,7 +127,7 @@ print(df)
 # Then, print the dataframe head, the dataframe information, and the dataframe description.
 # Finally, print the count of each ‘Category’element.
 
-# In[87]:
+# In[ ]:
 
 
 
@@ -159,62 +159,59 @@ df["Category"].value_counts()
 
 # # Task 4 – Clean the data
 
+# An important aspect of processing data is to move invalid data points so you can effectively perform
+# statistics and visualize valid data. The pandas dataframe has built-in functionality to clean the data.
+# First, remove all the null data using the appropriate dataframe drop method. Next, you may want to
+# also remove duplicate data from the dataframe. Use a dataframe method to do so.
+# To appropriately display the data field, convert the dataframe field to a datetime format using the
+# pandas object (not the dataframe). Hint: you pass the dataframe’s ‘Date’ field to the pandas conversion
+# method.
+# Next, convert the dataframe ‘Likes’ data to an integer.
+# 
+
 # In[ ]:
-
-
-An important aspect of processing data is to move invalid data points so you can effectively perform
-statistics and visualize valid data. The pandas dataframe has built-in functionality to clean the data.
-First, remove all the null data using the appropriate dataframe drop method. Next, you may want to
-also remove duplicate data from the dataframe. Use a dataframe method to do so.
-To appropriately display the data field, convert the dataframe field to a datetime format using the
-pandas object (not the dataframe). Hint: you pass the dataframe’s ‘Date’ field to the pandas conversion
-method.
-Next, convert the dataframe ‘Likes’ data to an integer.
-
-
-# In[15]:
 
 
 df.dropna()
 
 
-# In[16]:
+# In[ ]:
 
 
 df.dropna().sum()
 
 
-# In[17]:
+# In[ ]:
 
 
 df.dropna()
 
 
-# In[18]:
+# In[ ]:
 
 
 df.drop_duplicates()
 
 
-# In[19]:
+# In[ ]:
 
 
 df["Date"]=pd.to_datetime(df["Date"])
 
 
-# In[20]:
+# In[ ]:
 
 
 df
 
 
-# In[21]:
+# In[ ]:
 
 
 df["Likes"]=df["Likes"].astype(int)
 
 
-# In[22]:
+# In[ ]:
 
 
 df["Likes"]
@@ -226,7 +223,7 @@ df["Likes"]
 # using the method histogram, passing in the dataframe field ‘Likes’ as in x.
 # In order to have the histogram show up in the output.
 
-# In[23]:
+# In[ ]:
 
 
 get_ipython().system('pip install plotly')
@@ -237,7 +234,7 @@ import plotly.express as px
 # using the method histogram, passing in the dataframe field ‘Likes’ as in x.
 # In order to have the histogram show up in the output, use the MathPlotLib.pyplot’s show merthod.
 
-# In[39]:
+# In[ ]:
 
 
 fig=px.histogram(df,x="Likes",nbins=20,barmode="group",hover_data="Category",title="Histogram plot of the Likes")
@@ -252,7 +249,7 @@ using the method histogram, passing in the dataframe field ‘Likes’ as in x.
 In order to have the histogram show up in the output.
 
 
-# In[64]:
+# In[ ]:
 
 
 plt.hist(x="Likes",data=df,bins=20,color="skyblue",histtype='barstacked',label="Count",orientation="vertical")
@@ -267,7 +264,7 @@ plt.show()
 # using the method box, passing in the dataframe field ‘Category’ as in x & 'Likes' as in y.
 # In order to have the boxplot show up in the output.Now, create a boxplot with the x axis as ‘Category’, and the y axis as ‘Likes’.
 
-# In[71]:
+# In[ ]:
 
 
 fig=px.box(df,x="Category", y="Likes",color="Category",boxmode="overlay",title="Graph : Category vs Likes")
@@ -282,7 +279,7 @@ using the method boxplot, passing in the dataframe field ‘Category’ as in x 
 In order to have the boxplot show up in the output.Now, create a boxplot with the x axis as ‘Category’, and the y axis as ‘Likes’.
 
 
-# In[78]:
+# In[ ]:
 
 
 sns.boxplot(x="Category", y="Likes",data=df,notch=True)
@@ -294,7 +291,7 @@ plt.show()
 
 # Now perform some statistics on the data. First, print out the mean of the ‘Likes’ category.
 
-# In[85]:
+# In[ ]:
 
 
 print("The mean of the ‘Likes’ category  is :")
@@ -303,7 +300,7 @@ df["Likes"].mean()
 
 # The dataframe’s groupby method to print out the mean of each Category ‘Likes’
 
-# In[86]:
+# In[ ]:
 
 
 print("The mean of each category Likes is : ")
